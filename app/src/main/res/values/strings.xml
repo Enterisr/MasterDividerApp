@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MasterDivider2</string>
+    <string name="textview">OK</string>
+    <string name="divides_in">Divides In</string>
+    <string name="string_01">str</string>
+    <string name="_01">str</string>
+</resources>
