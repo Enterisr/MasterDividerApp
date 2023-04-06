@@ -18,10 +18,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="204dp"
+            android:fontFamily="@font/open_sans"
             android:text="@string/_01"
-            android:textColor="@color/design_default_color_secondary"
+            android:textColor="#83FF88"
             android:textColorLink="@color/black"
-            android:textSize="60sp"
+            android:textSize="100sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,11 +34,13 @@
             android:layout_height="69dp"
             android:layout_marginTop="108dp"
             android:autofillHints=""
-            android:background="#75B1CF"
+            android:background="@color/white"
             android:ems="10"
+            android:fontFamily="@font/open_sans"
             android:inputType="number"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.486"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/question"
             tools:text="@tools:sample/date/day_of_week" />
@@ -45,38 +48,40 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="412dp"
             android:layout_height="83dp"
+            android:background="@color/scoreBar"
+            android:id="@+id/scoreBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/timerLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/textview"
-                android:textColor="@color/white"
-                android:textSize="34sp"
+                android:id="@+id/textView"
+                android:layout_width="138dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="112dp"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/score"
+                android:textColor="#C9000000"
+                android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.048"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.51" />
+                app:layout_constraintVertical_bias="0.478" />
 
             <TextView
                 android:id="@+id/scoreLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="64dp"
+                android:layout_width="82dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/open_sans"
                 android:text="@string/textview"
-                android:textColor="@color/purple_200"
-                android:textSize="60sp"
+                android:textColor="#C9000000"
+                android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/timerLabel"
+                app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.51" />
+                app:layout_constraintVertical_bias="0.481" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -84,13 +89,44 @@
             android:id="@+id/dividesIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans"
             android:text="@string/divides_in"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/input"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.445"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question" />
+            app:layout_constraintTop_toBottomOf="@+id/question"
+            app:layout_constraintVertical_bias="0.802" />
+
+        <TextView
+            android:id="@+id/timerLabel"
+            android:layout_width="62dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="44dp"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/timer"
+            android:textColor="@color/scoreBar"
+            android:textSize="30sp"
+            app:drawableLeftCompat="@drawable/baseline_timer_34"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pstttt_2_and_1_does_nt_count"
+            android:textColor="@color/scoreBar"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.948" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

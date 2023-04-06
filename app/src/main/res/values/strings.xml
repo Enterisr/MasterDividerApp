@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">MasterDivider2</string>
     <string name="textview">OK</string>
-    <string name="divides_in">Divides In</string>
+    <string name="divides_in">What does it divides in?</string>
     <string name="string_01">str</string>
     <string name="_01">str</string>
+    <string name="timer">timer</string>
+    <string name="score">SCORE:</string>
+    <string name="pstttt_2_and_1_does_nt_count">pstttt: 2 and 1 does\'nt count!</string>
 </resources>

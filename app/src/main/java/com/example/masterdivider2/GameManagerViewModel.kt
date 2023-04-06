@@ -10,44 +10,50 @@ val numberToDivideBy = intArrayOf(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)
 class GameManagerViewModel : ViewModel() {
     var points = MutableLiveData(0);
     private var time = MutableLiveData<Long>();
+    private var _resultObserver = MutableLiveData<STATUS>();
+    var numberInQuestion = MutableLiveData(0);
+    val resultObserver get() = _resultObserver;
     val timerTime: LiveData<Long> get() = time;
-    private var timer = object : CountDownTimer(20000, 1000) {
+    private var timer = object : CountDownTimer(6000, 10) {
         override fun onTick(millisUntilFinished: Long) {
-            time.value = millisUntilFinished
+            time.value = millisUntilFinished / 1000;
         }
 
         override fun onFinish() {
-            onFail();
+            setStatus(STATUS.TIMES_UP);
+            time.value = 0;
         }
     }
-    private var numberInQuestion: Int = 0
 
     fun initGame() {
         timer.start()
         initRound()
     }
 
-    private fun initRound(): Int {
+    private fun initRound() {
+        timer.cancel();
+        timer.start();
         val rndIndex = (numberToDivideBy.indices).random();
         val rndMultiplier = (0..2000).random();
         val rndToChooseFromArray = (0..10).random()
         if (rndToChooseFromArray > 7) {
-            numberInQuestion = (0..1000).random()
+            numberInQuestion.value = (0..1000).random()
         }
-        numberInQuestion = numberToDivideBy[rndIndex] * rndMultiplier;
-        return numberInQuestion;
+        numberInQuestion.value = numberToDivideBy[rndIndex] * rndMultiplier;
+
     }
 
-    fun onAnswer(ans: Int): Int {
-        if (numberInQuestion % ans == 0) {
+    fun onAnswer(ans: Int) {
+        val validationResult = validateAnswer(ans, numberInQuestion);
+        if (validationResult == STATUS.CORRECT) {
             points.value = points.value!! + 1;
-        } else {
-            onFail();
         }
-        return initRound();
+        setStatus(validationResult)
     }
 
-    fun onFail() {
-        println("fail");
+    private fun setStatus(status: STATUS) {
+        resultObserver.value = status
+        initRound()
     }
+
 }

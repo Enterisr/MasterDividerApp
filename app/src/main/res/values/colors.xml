@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="yarokTpuah">#70B853</color>
+    <color name="scoreBar">#B9FFBC</color>
+    <color name="scoreBarHighlight">#37F940</color>
+
+    <color name="RED">#FF392A</color>
 </resources>
