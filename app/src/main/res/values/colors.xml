@@ -12,4 +12,7 @@
     <color name="scoreBarHighlight">#37F940</color>
 
     <color name="RED">#FF392A</color>
+    <color name="background_black">#C9000000</color>
+    <color name="bright_background">#222222</color>
+    <color name="DEADRED">#EC6257</color>
 </resources>

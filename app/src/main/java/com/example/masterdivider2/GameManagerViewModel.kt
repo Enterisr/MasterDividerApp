@@ -1,5 +1,6 @@
 package com.example.masterdivider2;
 
+import android.content.Intent
 import android.os.CountDownTimer
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +9,7 @@ import androidx.lifecycle.ViewModel
 val numberToDivideBy = intArrayOf(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)
 
 class GameManagerViewModel : ViewModel() {
-    var points = MutableLiveData(0);
+    var points = MutableLiveData(3);
     private var time = MutableLiveData<Long>();
     private var _resultObserver = MutableLiveData<STATUS>();
     var numberInQuestion = MutableLiveData(0);
@@ -45,14 +46,20 @@ class GameManagerViewModel : ViewModel() {
 
     fun onAnswer(ans: Int) {
         val validationResult = validateAnswer(ans, numberInQuestion);
-        if (validationResult == STATUS.CORRECT) {
-            points.value = points.value!! + 1;
-        }
         setStatus(validationResult)
     }
 
     private fun setStatus(status: STATUS) {
         resultObserver.value = status
+        if (status == STATUS.CORRECT) {
+            points.value = points.value!! + 1
+        } else if(points.value==1) {
+            resultObserver.value = STATUS.GAME_END
+            return
+        }
+        else{
+            points.value = points.value?.minus(1);
+        }
         initRound()
     }
 

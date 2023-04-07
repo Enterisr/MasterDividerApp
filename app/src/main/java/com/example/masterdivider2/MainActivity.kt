@@ -1,6 +1,6 @@
 package com.example.masterdivider2
 
-import android.graphics.Color
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateNextQuestion(nextQuestion: Number) {
         binding.question.text = nextQuestion.toString()
-        binding.input.text.clear();
+        binding.input.text.clear()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,19 +28,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val viewModel = ViewModelProvider(this)[GameManagerViewModel::class.java];
+        val viewModel = ViewModelProvider(this)[GameManagerViewModel::class.java]
+        viewModel.initGame()
         binding.input.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                val ans = binding.input.text.toString();
+                val ans = binding.input.text.toString()
                 if (ans.isNotBlank()) {
-                    val ansInInt = ans.toInt();
+                    val ansInInt = ans.toInt()
                     viewModel.onAnswer(ansInInt)
                     return@OnKeyListener true
                 }
             }
             false
-        });
+        })
+
         viewModel.resultObserver.observe(this) { status ->
+            if(status==STATUS.GAME_END){
+                intent = Intent(this, EndGame::class.java)
+                startActivity(intent)
+            }
             var scoreBarBackgroundColors = arrayOf(
                 ColorDrawable(resources.getColor(R.color.RED)),
                 ColorDrawable(resources.getColor(R.color.scoreBar))
@@ -53,15 +59,16 @@ class MainActivity : AppCompatActivity() {
             }
             val scoreBarTransition = TransitionDrawable(scoreBarBackgroundColors)
             binding.scoreBar.background = scoreBarTransition
-            scoreBarTransition.startTransition(1000)
+            scoreBarTransition.startTransition(1500)
 
-            Toast.makeText(this, status.message, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, status.message, Toast.LENGTH_SHORT).show()
         }
+
         viewModel.numberInQuestion.observe(this) { numberInQuestion ->
             updateNextQuestion(numberInQuestion)
         }
         viewModel.timerTime.observe(this) { value ->
-            binding.timerLabel.text = value.toString();
+            binding.timerLabel.text = value.toString()
         }
 
         viewModel.points.observe(this) { value ->

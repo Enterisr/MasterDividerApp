@@ -6,5 +6,18 @@
     <string name="_01">str</string>
     <string name="timer">timer</string>
     <string name="score">SCORE:</string>
+    <string name="app_description">Your mission: Discover what number the given number is divided by not including 1 or 2! If your score drops to zero you loss!</string>
     <string name="pstttt_2_and_1_does_nt_count">pstttt: 2 and 1 does\'nt count!</string>
+    <string name="title_activity_end_game">EndGame</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="start_over">start over</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="start_over1">start over</string>
 </resources>
