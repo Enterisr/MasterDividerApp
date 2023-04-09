@@ -1,4 +1,4 @@
-package com.example.masterdivider2
+package com.example.masterdivider3
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
@@ -6,16 +6,21 @@ import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.masterdivider2.databinding.ActivityMainBinding
+import com.example.masterdivider3.databinding.ActivityMainBinding
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
 
     private fun updateNextQuestion(nextQuestion: Number) {
         binding.question.text = nextQuestion.toString()
@@ -30,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(this)[GameManagerViewModel::class.java]
         viewModel.initGame()
+
         binding.input.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 val ans = binding.input.text.toString()
@@ -43,8 +49,9 @@ class MainActivity : AppCompatActivity() {
         })
 
         viewModel.resultObserver.observe(this) { status ->
-            if(status==STATUS.GAME_END){
+            if (status == STATUS.GAME_END) {
                 intent = Intent(this, EndGame::class.java)
+                intent.putExtra("score", viewModel.points.value);
                 startActivity(intent)
             }
             var scoreBarBackgroundColors = arrayOf(
@@ -60,7 +67,6 @@ class MainActivity : AppCompatActivity() {
             val scoreBarTransition = TransitionDrawable(scoreBarBackgroundColors)
             binding.scoreBar.background = scoreBarTransition
             scoreBarTransition.startTransition(1500)
-
             Toast.makeText(this, status.message, Toast.LENGTH_SHORT).show()
         }
 
@@ -73,6 +79,16 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.points.observe(this) { value ->
             binding.scoreLabel.text = value.toString()
+        }
+        viewModel.livesLeft.observe(this) { livesNumber ->
+            binding.heartBox.removeAllViews()
+            for (i in 1..livesNumber) {
+                val imageView = ImageView(this)
+                imageView.layoutParams = ViewGroup.LayoutParams(120,130)
+                imageView.id =  i+1;
+                imageView.setImageResource(R.drawable.heart)
+                binding.heartBox.addView(imageView)
+            }
         }
     }
 }

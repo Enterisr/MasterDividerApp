@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MasterDivider2" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.masterdivider3" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,12 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.MasterDivider2.NoActionBar">
+    <style name="Theme.masterdivider3.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.MasterDivider2.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.masterdivider3.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.MasterDivider2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.masterdivider3.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

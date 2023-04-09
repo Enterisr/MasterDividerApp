@@ -9,62 +9,74 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="388dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="210dp"
+        android:layout_height="276dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/_removal_ai__tmp_643031a9439d8" />
 
     <TextView
         android:id="@+id/gameOverLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="412dp"
+        android:layout_height="103dp"
         android:background="@color/bright_background"
         android:fontFamily="@font/alef_bold"
         android:padding="10dp"
         android:text="@string/game_over"
+        android:textAlignment="center"
         android:textColor="@color/DEADRED"
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/scoreGameOverLabel"
-        android:layout_width="259dp"
-        android:layout_height="59dp"
-        android:fontFamily="@font/alef_bold"
+        android:layout_width="265dp"
+        android:layout_height="79dp"
+        android:fontFamily="@font/open_sans"
         android:padding="10dp"
-        android:text="score"
+        android:text="Score plachaolder"
         android:textColor="@color/yarokTpuah"
-        android:textSize="30sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+        app:layout_constraintVertical_bias="0.365" />
+
+    <TextView
+        android:id="@+id/bestScoreGameOverLabel"
+        android:layout_width="265dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/open_sans"
+        android:padding="10dp"
+        android:text="Best Score plachaolder"
+        android:textColor="@color/yarokTpuah"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/scoreGameOverLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/startOverButton"
-        android:layout_width="187dp"
-        android:layout_height="72dp"
+        android:layout_width="198dp"
+        android:layout_height="73dp"
         android:background="@drawable/drawable_corner"
         android:fontFamily="@font/open_sans"
+        android:padding="10dp"
         android:text="@string/start_over1"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.547" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

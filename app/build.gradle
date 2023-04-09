@@ -3,18 +3,22 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
-    namespace 'com.example.masterdivider2'
+    namespace 'com.example.masterdivider3'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.masterdivider2"
+        applicationId "com.example.masterdivider3"
         minSdk 24
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "GOOGLE_PLAYSTORE_CLIENTID", apikeyProperties['GOOGLE_PLAYSTORE_CLIENTID'])
     }
 
     buildTypes {
@@ -34,10 +38,9 @@ android {
         viewBinding true
     }
 }
-
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation platform('com.google.firebase:firebase-bom:31.4.0')
+    implementation 'androidx.core:core-ktx:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -46,4 +49,13 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    implementation "com.google.android.gms:play-services-games-v2:17.0.0"
+
 }
+
+apply plugin: 'com.google.gms.google-services'
