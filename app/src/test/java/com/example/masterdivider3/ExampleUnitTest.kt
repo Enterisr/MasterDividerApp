@@ -1,4 +1,4 @@
-package com.example.masterdivider3
+package com.drunktolstoy.masterdivider3
 
 import org.junit.Test
 

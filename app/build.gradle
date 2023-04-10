@@ -8,11 +8,11 @@ def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 
 android {
-    namespace 'com.example.masterdivider3'
+    namespace 'com.drunktolstoy.masterdivider3'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.masterdivider3"
+        applicationId "com.drunktolstoy.masterdivider3"
         minSdk 24
         targetSdk 33
         versionCode 1

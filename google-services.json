@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:673290707004:android:49e71b86e6451e64522339",
         "android_client_info": {
-          "package_name": "com.example.masterdivider3"
+          "package_name": "com.drunktolstoy.masterdivider3"
         }
       },
       "oauth_client": [
@@ -38,7 +38,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:673290707004:android:4e670e30cde538af522339",
         "android_client_info": {
-          "package_name": "com.example.masterdivider3"
+          "package_name": "com.drunktolstoy.masterdivider3"
         }
       },
       "oauth_client": [
@@ -46,7 +46,7 @@
           "client_id": "673290707004-ao3drtbgpl09b3kjoeaah8o3eucnnlrc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.masterdivider3",
+            "package_name": "com.drunktolstoy.masterdivider3",
             "certificate_hash": "4bec489656f1b2cf9018b0333b654208779cdafd"
           }
         },
