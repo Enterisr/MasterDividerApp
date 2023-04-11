@@ -23,5 +23,5 @@
     <string name="score_label_endgame">SCORE: %d</string>
     <string name="game_services_project_id">673290707004</string>
     <string name="SignInButon">Sign In</string>
-
+<string name="leaderboardId" >leader</string>
 </resources>
